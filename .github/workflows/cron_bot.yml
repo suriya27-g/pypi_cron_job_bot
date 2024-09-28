@@ -1,0 +1,36 @@
+name: Try Podman-Init Installation
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # Every 6 hours
+  workflow_dispatch:
+
+jobs:
+  install-podman-init:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Podman-Init package and log status
+        run: |
+          PACKAGE_NAME="podman-init"
+          LOG_FILE="pip_install.log"
+
+          # Installing the package and logging the status
+          echo "Attempting to install $PACKAGE_NAME from PyPi" >> $LOG_FILE
+          pip install $PACKAGE_NAME >> $LOG_FILE 2>&1
+          if [ $? -eq 0 ]; then
+            echo "$(date): $PACKAGE_NAME installed successfully." >> $LOG_FILE
+          else
+            echo "$(date): Failed to install $PACKAGE_NAME." >> $LOG_FILE
+          fi
+
+      - name: Commit log file
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add pip_install.log
+          git commit -m "Update pip install log"
+          git push
