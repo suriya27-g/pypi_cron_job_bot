@@ -33313,3 +33313,14 @@ Downloading podman_init-1.0.3-py3-none-any.whl (10 kB)
 Installing collected packages: podman-init
 Successfully installed podman-init-1.0.3
 Mon Sep 22 04:29:22 UTC 2025: podman-init installed successfully.
+Attempting to install podman-init from PyPi
+Defaulting to user installation because normal site-packages is not writeable
+Collecting podman-init
+  WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /packages/9e/4e/56a290d55e2570fc13cec0f01ed4a875568f4b8b5de93dfd5436d94b52ab/podman_init-1.0.3-py3-none-any.whl.metadata
+  Downloading podman_init-1.0.3-py3-none-any.whl.metadata (2.4 kB)
+Requirement already satisfied: click in /usr/lib/python3/dist-packages (from podman-init) (8.1.6)
+Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (from podman-init) (3.1.2)
+Downloading podman_init-1.0.3-py3-none-any.whl (10 kB)
+Installing collected packages: podman-init
+Successfully installed podman-init-1.0.3
+Mon Sep 22 06:38:21 UTC 2025: podman-init installed successfully.
